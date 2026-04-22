@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <title>Temporizador</title>
+</head>
+<body>
+    <input type="number" id="tiempoElegido">
+    <button onclick="comenzarTiempo()">Alarma</button>
+    <h1 id="textoAlarma" style="color: red;">APAGADO</h1>
+
+
+    <audio id="audioAlarma">
+        <source src="Audios/alarma.mp3" type="audio/mpeg">
+        Sonido no habilitado
+    </audio>
+
+    <script>
+        let elementoSegundos=document.getElementById("tiempoElegido")//funcionalidad distinta donde el usuario pude programar la alarma
+        let elementoTextoAlarma = document.getElementById("textoAlarma");
+        let elementoSonidoAlarma = document.getElementById("audioAlarma");
+
+
+
+        function comenzarTiempo(){
+            setTimeout(tiempoCumplido, 1000 * elementoSegundos.value);
+        }
+
+        function tiempoCumplido(){
+            //alert("se acabo el tiempo!");
+            elementoTextoAlarma.textContent = "ENCENDIDO";
+            elementoTextoAlarma.style.color = "green";
+            elementoSonidoAlarma.play();
+        }
+    </script>
+    
+</body>
+</html>

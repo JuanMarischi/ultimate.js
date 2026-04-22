@@ -1,0 +1,49 @@
+ @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+ h1 {
+     color: white;
+     border-color: white;
+     padding: 5px;
+     border: 30px;
+     border-style: double;
+     font-family: "Bebas Neue", sans-serif;
+     font-weight: 400;
+     font-style: normal;
+     text-align: center;
+ }
+
+ .banner {
+     width: 100%;
+     height: 450px;
+     background-image: url('./imagenes/banderagelp.jpg');
+     background-size: cover;
+     /* ajusta la imagen */
+     background-position: 20% 50%;
+     /* centra */
+     background-repeat: no-repeat;
+ }
+
+
+ body {
+     /* background-color: blue; */
+     background: #020024;
+     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 0, 235, 1) 0%, rgba(228, 237, 240, 1) 84%);
+
+
+ }
+
+ .contenedor {
+     margin-top: 150px;
+
+ }
+
+ #ingreso {
+     text-align: center;
+
+ }
+
+ .boton {
+     color: white;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     font-size: x-large;
+ }
