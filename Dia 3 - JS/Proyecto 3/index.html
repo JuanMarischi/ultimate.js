@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+    <title>Trivia Pro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="comenzarTiempo()">
+
+    <div class="contenedor">
+            <h1>Trivia Pro 🐺</h1>
+
+    
+
+    <div class="pregunta">
+            <p>¿En qué año se fundó Gimnasia de La Plata?</p>
+            <input type="text" id="respuesta1">
+        </div>
+
+        <div class="pregunta">
+            <p>¿Cuántas copas ganó?</p>
+            <input type="number" id="respuesta2">
+        </div>
+
+        <div class="pregunta">
+            <p>¿Dónde está ubicado el estadio?</p>
+            <input type="text" id="respuesta3">
+        </div>
+
+          <h1 id="contador">30</h1>
+
+<div class="botones">
+    <button onclick="finalizarJuego()">Finalizar</button>
+    <button onclick="volverAIntentar()">Volver a intentar</button>
+        </div>
+    </div>
+
+    <audio id="audioGameOver">
+        <source src="Audios/alarma.mp3" type="audio/mpeg">
+    </audio>
+
+    
+</body>
+<script>
+    let tiempo = 30;
+    let intervalo;
+    let timeout;
+    let sonidoGameOver = document.getElementById("audioGameOver")
+
+    function comenzarTiempo(){
+        intervalo = setInterval(disminuirTiempo, 1000);
+        timeout = setTimeout(tiempoTerminado, 30 * 1000);
+    }
+
+    function disminuirTiempo(){
+        tiempo--;
+        document.getElementById("contador").textContent = tiempo;
+
+    }
+
+    function tiempoTerminado(){
+        sonidoGameOver.play();
+        alert("Game Over");
+
+    }
+
+    function finalizarJuego(){
+        clearInterval(intervalo);
+        clearTimeout(timeout);
+
+            let r1 = document.getElementById("respuesta1").value;
+            let r2 = document.getElementById("respuesta2").value;
+            let r3 = document.getElementById("respuesta3").value;
+
+           
+
+            let correcta1 = "1887";
+            let correcta2 = "1";
+            let correcta3 = "el bosque";
+
+
+            let resultado = "Resultados:\n";
+
+    resultado += (r1 == correcta1 ? "✅ Fundación correcta\n" : "❌ Fundación incorrecta\n");
+    resultado += (r2 == correcta2 ? "✅ Copas correcto\n" : "❌ Copas incorrecto\n");
+    resultado += (r3.includes("bosque") ? "✅ Estadio correcto\n" : "❌ Estadio incorrecto\n");
+
+    let fecha = new Date();
+
+      resultado += "\nFecha: " + fecha.toLocaleString();
+
+    alert(resultado);
+
+    }
+
+    function volverAIntentar(){
+    location.reload();
+}
+
+
+</script>
